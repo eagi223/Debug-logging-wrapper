@@ -102,8 +102,8 @@ void debug_log_raw( debug_log_cfg_t *cfg, const char *format, ... );
 // The following LOGX wrappers add simple calls for common log types that auto fill mode of the parameters for debug_log_base
 #define LOGE( logInfo, format, ... )    debug_log_base( logInfo, DEBUG_LOG_LEVEL_ERROR, ANSI_COLOR_RED, "E", __FILENAME__, __func__, __LINE__, format, ##__VA_ARGS__ )
 #define LOGW( logInfo, format, ... )    debug_log_base( logInfo, DEBUG_LOG_LEVEL_WARN, ANSI_COLOR_YELLOW, "W", __FILENAME__, __func__, __LINE__, format, ##__VA_ARGS__ )
-#define LOGI( logInfo, format, ... )    debug_log_base( logInfo, DEBUG_LOG_LEVEL_INFO, ANSI_COLOR_GREEN, "E", __FILENAME__, __func__, __LINE__, format, ##__VA_ARGS__ )
-#define LOGD( logInfo, format, ... )    debug_log_base( logInfo, DEBUG_LOG_LEVEL_DEBUG, ANSI_COLOR_BLUE, "E", __FILENAME__, __func__, __LINE__, format, ##__VA_ARGS__ )
+#define LOGI( logInfo, format, ... )    debug_log_base( logInfo, DEBUG_LOG_LEVEL_INFO, ANSI_COLOR_GREEN, "I", __FILENAME__, __func__, __LINE__, format, ##__VA_ARGS__ )
+#define LOGD( logInfo, format, ... )    debug_log_base( logInfo, DEBUG_LOG_LEVEL_DEBUG, ANSI_COLOR_BLUE, "D", __FILENAME__, __func__, __LINE__, format, ##__VA_ARGS__ )
 
 #define LOG( logInfo, format, ... )     debug_log_raw( logInfo, format, ##__VA_ARGS__ )
 
