@@ -1,6 +1,8 @@
 # Debug Logging Wrapper
 I put this wrapper together for an ESP32 project that I'm working on and it has been hugely helpful for me. Basically I have a pretty complex project with 50+ source files/headers. Each .c file gets its own log configuration struct as a static global, then all logging is done throught the LOGX macros. It makes it flexible enought that I can have a macro per file to disable debug output OR globally disable all ouputs. The version I'm sharing here is a little more simple than that so you can tailor it to your needs. I thought I'd share it in case it would be helpful for someone else!
 
+EDIT: github doesn't seem to support HTML in markdown files, so the colors are not showing up correctly in output logs examples, but it IS colored when using this to print logs in MacOS terminal. I'm not sure about Windows compatibility, so if someone wants to test and either add Issues or PRs feel free!
+
 ## Example 1: ERROR Logging
 For quick formatted, color coded logging, the easiest way is to use the LOGX wrappers. For more flexibility, you can add your own debug_log_base macro or use the function directly (though the macros help reduce the lengthy function call greatly).
 ```C
@@ -31,8 +33,8 @@ The other LOGX functions produce similar output:
 
 <p style="color:red">E main.c : app_main (15)- THIS IS AN ERROR (using LOGE())</p>
 <p style="color:yellow">W main.c : app_main (15)- THIS IS A WARNING (using LOGW())</p>
-<p style="color:green">W main.c : app_main (15)- THIS IS INFO (using LOGI())</p>
-<p style="color:blue">W main.c : app_main (15)- THIS IS DEBUG (using LOGD())</p>
+<p style="color:green">I main.c : app_main (15)- THIS IS INFO (using LOGI())</p>
+<p style="color:blue">D main.c : app_main (15)- THIS IS DEBUG (using LOGD())</p>
 
 Keep in mind that the DEBUG_LOG_LEVEL set in the debug_log_cfg struct is heirarchical meaning if it is set to ...ERROR only LOGE statements are output. If it is set to ...INFO, LOGE, LOGW and LOGI statements are output. Higher debug levels will display all lower logs as well. ...NONE will disable all LOGX() output
 
